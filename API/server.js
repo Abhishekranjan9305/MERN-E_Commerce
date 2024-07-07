@@ -6,6 +6,9 @@ import productRouter from './Routes/product.js'
 import cartRouter from './Routes/cart.js'
 import addressRouter from './Routes/address.js'
 import cors from 'cors';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 
 
@@ -36,7 +39,7 @@ app.use('/api/cart',cartRouter)
 app.use('/api/address',addressRouter)
 
 
-mongoose.connect("mongodb+srv://abhishekranjan7309:uNZyqbokXNmNBEHI@cluster0.rpyijtd.mongodb.net/",{
+mongoose.connect(process.env.MONGODB_URI,{
     dbName:"MERN_ECOMMERCE"
 }
 ) .then(()=>console.log("MongoDB Connected Succesfully"))
